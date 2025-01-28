@@ -697,6 +697,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 942117614}
+  - component: {fileID: 942117615}
   m_Layer: 0
   m_Name: Meteorite_1
   m_TagString: Untagged
@@ -712,16 +713,30 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 942117613}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.694, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 583015320}
   - {fileID: 426995220}
   - {fileID: 305776243}
+  - {fileID: 1358538032}
   m_Father: {fileID: 1635741763}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &942117615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942117613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65db38ed5ea0f854c8dca47448a7713f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  model: {fileID: 583015320}
 --- !u!1 &1107807137
 GameObject:
   m_ObjectHideFlags: 0
@@ -837,6 +852,52 @@ MonoBehaviour:
   - {fileID: 1137593213}
   - {fileID: 330528151}
   - {fileID: 1937131908}
+--- !u!1 &1358538031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1358538032}
+  - component: {fileID: 1358538033}
+  m_Layer: 0
+  m_Name: JunkRotate
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1358538032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358538031}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 942117614}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1358538033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358538031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24b3ec4e88990aa4db1f9e99e9344aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  junkCtrl: {fileID: 942117615}
+  speed: 9
 --- !u!1 &1361701812
 GameObject:
   m_ObjectHideFlags: 0
@@ -932,7 +993,7 @@ GameObject:
   - component: {fileID: 1406862159}
   - component: {fileID: 1406862160}
   - component: {fileID: 1406862162}
-  - component: {fileID: 1406862161}
+  - component: {fileID: 1406862163}
   m_Layer: 0
   m_Name: JunkSpawner
   m_TagString: Untagged
@@ -973,20 +1034,6 @@ MonoBehaviour:
   - {fileID: 942117614}
   poolObjs: []
   holder: {fileID: 1845153349}
---- !u!114 &1406862161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406862157}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65db38ed5ea0f854c8dca47448a7713f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  junkSpawner: {fileID: 1406862160}
-  junkSpawnPoints: {fileID: 1173192864}
 --- !u!114 &1406862162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -999,7 +1046,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace33cbc5b9956449aae8b53aa0c8586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  junkCtrl: {fileID: 1406862161}
+  junkCtrl: {fileID: 1406862163}
+--- !u!114 &1406862163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406862157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd4d7fd8d96a134d92bfe81732a97f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  junkSpawner: {fileID: 1406862160}
+  junkSpawnPoints: {fileID: 1173192864}
 --- !u!1 &1432603497
 GameObject:
   m_ObjectHideFlags: 0
