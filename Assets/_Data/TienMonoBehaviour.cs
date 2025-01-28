@@ -16,6 +16,11 @@ public class TienMonoBehaviour : MonoBehaviour
         ResetValue();
     }
 
+    protected virtual void Start()
+    {
+        //For override
+    }
+
     protected virtual void OnEnable()
     {
         //For override

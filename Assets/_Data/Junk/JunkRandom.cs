@@ -19,7 +19,7 @@ public class JunkRandom : TienMonoBehaviour
         Debug.Log($"{transform.name}: LoadJunkCtrl", gameObject);
     }
 
-    private void Start()
+    protected override void Start()
     {
         this.JunkSpawning();
     }
