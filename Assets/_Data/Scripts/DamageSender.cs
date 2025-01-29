@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageSender : TienMonoBehaviour
 {
-    [SerializeField] protected float damage = 1f;
+    [SerializeField] protected int damage = 1;
 
     //Send damage to an Object
     public virtual void Send(Transform obj)
@@ -17,11 +17,5 @@ public class DamageSender : TienMonoBehaviour
     protected virtual void Send(DamageReceiver damageReceiver)
     {
         damageReceiver.Deduct(damage);
-        this.DestroyObject();
-    }
-
-    protected virtual void DestroyObject()
-    {
-        Destroy(transform.parent.gameObject);
     }
 }

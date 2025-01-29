@@ -15,7 +15,7 @@ public abstract class Despawn : TienMonoBehaviour
         this.DespawnObject();
     }
 
-    protected virtual void DespawnObject()
+    public virtual void DespawnObject()
     {
         Destroy(this.transform.parent);
     }

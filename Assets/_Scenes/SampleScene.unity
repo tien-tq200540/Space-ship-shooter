@@ -280,11 +280,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 196502548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7143f810098bb2d4e86e78fc5c6278ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 637a8cb682a922346886bf7b4d05cec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  maxHp: 10
+  sphereCollider: {fileID: 196502550}
+  hp: 1
+  maxHp: 2
+  isDead: 0
+  junkCtrl: {fileID: 942117615}
 --- !u!1 &305776242
 GameObject:
   m_ObjectHideFlags: 0
@@ -950,6 +953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 583015320}
+  junkDespawn: {fileID: 305776244}
 --- !u!1 &1107807137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,10 +1125,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1183710323}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 203612aa146c5f5428772520e798cce7, type: 3}
+  m_Script: {fileID: 11500000, guid: c5924cf3893601b4aabf0e15e3b101ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+  bulletCtrl: {fileID: 1454081778}
 --- !u!1 &1358538031
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageSender: {fileID: 1183710325}
+  bulletDespawn: {fileID: 356123160}
 --- !u!1 &1496465891
 GameObject:
   m_ObjectHideFlags: 0
