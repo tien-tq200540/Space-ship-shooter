@@ -39,12 +39,14 @@ public class DamageReceiver : TienMonoBehaviour
 
     public virtual void Add(int add)
     {
+        if (this.isDead) return;
         this.hp += add;
         if (this.hp > maxHp) this.hp = maxHp;
     }
 
     public virtual void Deduct(int deduct)
     {
+        if (this.isDead) return;
         this.hp -= deduct;
         if (this.hp < 0) this.hp = 0;
         this.CheckIsDead();
@@ -57,7 +59,11 @@ public class DamageReceiver : TienMonoBehaviour
 
     protected virtual void CheckIsDead()
     {
-        if (this.IsDead()) OnDead();
+        if (this.IsDead())
+        {
+            this.isDead = true;
+            OnDead();
+        }
     }
 
     protected virtual void OnDead()
