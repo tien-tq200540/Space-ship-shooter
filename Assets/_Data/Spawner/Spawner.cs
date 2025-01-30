@@ -7,6 +7,8 @@ public abstract class Spawner : TienMonoBehaviour
     [SerializeField] protected List<Transform> prefabs = new();
     [SerializeField] protected List<Transform> poolObjs = new();
     [SerializeField] protected Transform holder;
+    [SerializeField] protected int spawnedCount = 0;
+    public int SpawnedCount => spawnedCount;
 
     protected override void LoadComponents()
     {
@@ -80,6 +82,7 @@ public abstract class Spawner : TienMonoBehaviour
         Transform newPrefab = GetObjectFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
         newPrefab.parent = holder;
+        this.spawnedCount++;
         return newPrefab;
     }
 
@@ -87,5 +90,6 @@ public abstract class Spawner : TienMonoBehaviour
     {
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
+        this.spawnedCount--;
     }
 }

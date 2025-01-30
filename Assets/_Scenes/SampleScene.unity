@@ -1260,6 +1260,7 @@ MonoBehaviour:
   - {fileID: 1454081777}
   poolObjs: []
   holder: {fileID: 1107807138}
+  count: 0
 --- !u!1 &1406862157
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1313,7 @@ MonoBehaviour:
   - {fileID: 942117614}
   poolObjs: []
   holder: {fileID: 1845153349}
+  count: 0
 --- !u!114 &1406862162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,6 +1327,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   junkSpawnerCtrl: {fileID: 1406862163}
+  randomDelay: 1
+  randomTimer: 0
+  randomLimit: 9
 --- !u!114 &1406862163
 MonoBehaviour:
   m_ObjectHideFlags: 0
