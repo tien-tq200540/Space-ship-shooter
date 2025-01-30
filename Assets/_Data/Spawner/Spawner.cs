@@ -79,6 +79,18 @@ public abstract class Spawner : TienMonoBehaviour
             return null;
         }
 
+        return this.Spawn(prefab, spawnPos, rotation);
+    }
+
+    /// <summary>
+    /// If we already have a prefab, we can use this method
+    /// </summary>
+    /// <param name="prefab"></param>
+    /// <param name="spawnPos"></param>
+    /// <param name="rotation"></param>
+    /// <returns></returns>
+    public virtual Transform Spawn(Transform prefab, Vector3 spawnPos, Quaternion rotation)
+    {
         Transform newPrefab = GetObjectFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
         newPrefab.parent = holder;
@@ -91,5 +103,11 @@ public abstract class Spawner : TienMonoBehaviour
         this.poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
         this.spawnedCount--;
+    }
+
+    public virtual Transform RandomPrefab()
+    {
+        int rand = Random.Range(0, this.prefabs.Count);
+        return this.prefabs[rand];
     }
 }

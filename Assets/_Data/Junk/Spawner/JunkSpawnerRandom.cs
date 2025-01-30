@@ -41,7 +41,9 @@ public class JunkSpawnerRandom : TienMonoBehaviour
 
         Vector3 pos = this.junkSpawnerCtrl.JunkSpawnPoints.GetRandom().position;
         Quaternion rot = transform.rotation;
-        Transform obj = junkSpawnerCtrl.JunkSpawner.Spawn(JunkSpawner.meteoriteOne, pos, rot);
+        Transform prefab = this.junkSpawnerCtrl.JunkSpawner.RandomPrefab();
+
+        Transform obj = junkSpawnerCtrl.JunkSpawner.Spawn(prefab, pos, rot);
         obj.gameObject.SetActive(true);
 
        //Invoke(nameof(this.JunkSpawning), 1f);
