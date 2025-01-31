@@ -22,6 +22,12 @@ public class DamageReceiver : TienMonoBehaviour
         this.LoadCollider();
     }
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        this.Reborn();
+    }
+
     protected virtual void LoadCollider()
     {
         if (this.sphereCollider != null) return;

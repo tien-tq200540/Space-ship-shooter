@@ -24,4 +24,10 @@ public class JunkDamageReceiver : DamageReceiver
     {
         this.junkCtrl.JunkDespawn.DespawnObject();
     }
+
+    protected override void Reborn()
+    {
+        this.maxHp = this.junkCtrl.JunkSO.hpMax;
+        base.Reborn();
+    }
 }

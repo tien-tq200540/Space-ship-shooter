@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereCollider: {fileID: 196502550}
-  hp: 1
+  hp: 2
   maxHp: 2
   isDead: 0
   junkCtrl: {fileID: 942117615}
@@ -1047,6 +1047,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 583015320}
   junkDespawn: {fileID: 305776244}
+  junkSO: {fileID: 11400000, guid: 87c6b8611f079214391e7c9e0b004e82, type: 2}
 --- !u!1 &1107807137
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,8 +1156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sphereCollider: {fileID: 1150924635}
-  hp: 1
-  maxHp: 2
+  hp: 4
+  maxHp: 4
   isDead: 0
   junkCtrl: {fileID: 1179175003}
 --- !u!135 &1150924635
@@ -1299,6 +1300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1742912753}
   junkDespawn: {fileID: 932369207}
+  junkSO: {fileID: 11400000, guid: 3ab1ae2877682dc448a55725c0f0a53a, type: 2}
 --- !u!1 &1183710323
 GameObject:
   m_ObjectHideFlags: 0
