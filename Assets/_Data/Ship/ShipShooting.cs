@@ -33,6 +33,8 @@ public class ShipShooting : MonoBehaviour
         Transform newBullet = BulletSpawner.Instance.Spawn(BulletSpawner.bulletOne, spawnPos, rotation);
         if (newBullet == null) return;
 
+        BulletCtrl bulletCtrl = newBullet.GetComponent<BulletCtrl>();
+        bulletCtrl.Shooter = this.transform.parent;
         newBullet.gameObject.SetActive(true);
     }
 

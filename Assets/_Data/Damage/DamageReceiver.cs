@@ -33,7 +33,7 @@ public abstract class DamageReceiver : TienMonoBehaviour
         if (this.sphereCollider != null) return;
         this.sphereCollider = GetComponent<SphereCollider>();
         this.sphereCollider.isTrigger = true;
-        this.sphereCollider.radius = 0.2f;
+        this.sphereCollider.radius = 0.15f;
         Debug.Log($"{transform.name}: LoadCollider", gameObject);
     }
 

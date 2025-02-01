@@ -10,6 +10,9 @@ public class BulletCtrl : TienMonoBehaviour
     [SerializeField] protected BulletDespawn bulletDespawn;
     public BulletDespawn BulletDespawn { get => bulletDespawn; }
 
+    [SerializeField] protected Transform shooter;
+    public Transform Shooter { get => this.shooter; set => this.shooter = value; }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
