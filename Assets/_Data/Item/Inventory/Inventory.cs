@@ -37,7 +37,7 @@ public class Inventory : TienMonoBehaviour
         var profiles = Resources.LoadAll("ItemProfiles", typeof(ItemProfileSO));
         foreach (ItemProfileSO profile in profiles.Cast<ItemProfileSO>())
         {
-            if (profile.itemCode == itemCode) continue;
+            if (profile.itemCode != itemCode) continue;
 
             ItemInventory itemInventory = new()
             {

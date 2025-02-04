@@ -47,6 +47,13 @@ public class ItemLooter : TienMonoBehaviour
     {
         ItemPickupable itemPickupable = other.GetComponent<ItemPickupable>();
         if (itemPickupable == null) return;
-        Debug.Log("Can pick");
+        
+        //Add item to inventory
+        ItemCode itemCode = itemPickupable.GetItemCode();
+        if (this.inventory.AddItem(itemCode, 1))
+        {
+            //noti for itemPickupable that we pick this item, so despawn it
+            itemPickupable.Picked();
+        }
     }
 }
