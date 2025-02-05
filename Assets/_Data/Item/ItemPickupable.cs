@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-public class ItemPickupable : TienMonoBehaviour
+public class ItemPickupable : ItemAbstract
 {
     [SerializeField] protected SphereCollider sphereCollider;
 
@@ -42,7 +42,7 @@ public class ItemPickupable : TienMonoBehaviour
 
     public virtual void Picked()
     {
-        ItemDropSpawner.Instance.Despawn(transform.parent);
+        this.itemCtrl.ItemDespawn.DespawnObject();
         
     }
     protected virtual void OnMouseDown()
