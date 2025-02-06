@@ -5,7 +5,7 @@ using System.Collections.Generic;
 [Serializable]
 public class DropRate
 {
-    public ItemSO itemSO; //information about item
+    public ItemProfileSO itemSO; //information about item
     //Information about item drop stats
     public int dropRate;
     public int minDrop;
