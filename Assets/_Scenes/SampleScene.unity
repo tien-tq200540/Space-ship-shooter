@@ -1842,8 +1842,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 009b7d210ed61c14186156f818e3f6d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSlot: 6
-  items: []
+  maxSlot: 70
+  items:
+  - itemProfile: {fileID: 11400000, guid: e78dc4cf977f41344850626e626253ba, type: 2}
+    itemCount: 4
+    maxStack: 7
 --- !u!1 &798781957
 GameObject:
   m_ObjectHideFlags: 0

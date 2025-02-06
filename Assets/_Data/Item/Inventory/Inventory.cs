@@ -20,22 +20,24 @@ public class Inventory : TienMonoBehaviour
     {
         int newCount;
         int remainCount = addCount;
+        int itemMaxStack;
         ItemInventory itemExist;
         while (remainCount > 0)
         {
             itemExist = GetItemNotFullStack(itemCode);
             if (itemExist == null)
             {
-                if (this.IsFullInventory()) return false;
+                if (this.IsInventoryFull()) return false;
                 itemExist = CreateEmptyItem(itemCode);
                 this.items.Add(itemExist);
             }
 
+            itemMaxStack = this.GetItemMaxStack(itemExist);
             newCount = itemExist.itemCount + remainCount;
-            if (newCount > itemExist.maxStack)
+            if (newCount > itemMaxStack)
             {
-                remainCount -= (itemExist.maxStack - itemExist.itemCount);
-                newCount = itemExist.maxStack;
+                remainCount -= (itemMaxStack - itemExist.itemCount);
+                newCount = itemMaxStack;
             } else remainCount = 0;
             itemExist.itemCount = newCount;
         }
@@ -75,9 +77,15 @@ public class Inventory : TienMonoBehaviour
         return item.itemCount >= item.maxStack;
     }
 
-    protected virtual bool IsFullInventory()
+    protected virtual bool IsInventoryFull()
     {
         return this.items.Count >= this.maxSlot;
+    }
+
+    protected virtual int GetItemMaxStack(ItemInventory itemInventory)
+    {
+        if (itemInventory == null) return 0;
+        return itemInventory.maxStack;
     }
 
     //public virtual bool AddItem(ItemCode itemCode, int addCount)
