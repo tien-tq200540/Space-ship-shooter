@@ -7,13 +7,14 @@ public class Inventory : TienMonoBehaviour
 {
     [SerializeField] protected int maxSlot = 70;
     [SerializeField] protected List<ItemInventory> items = new();
+    public List<ItemInventory> Items => items;
 
     protected override void Start()
     {
         base.Start();
         //for testing
-        AddItem(ItemCode.IronOre, 21);
-        AddItem(ItemCode.CopperSword, 3);
+        AddItem(ItemCode.IronOre, 10);
+        AddItem(ItemCode.GoldOre, 10);
     }
 
     public virtual bool AddItem(ItemCode itemCode , int addCount)
@@ -42,6 +43,27 @@ public class Inventory : TienMonoBehaviour
             itemExist.itemCount = newCount;
         }
         return true;
+    }
+
+    public virtual void DeductItem(ItemCode itemCode, int deductCount)
+    {
+        int remainCount = deductCount;
+        for (int i = items.Count - 1; i >= 0; i--)
+        {
+            if (items[i].itemProfile.itemCode != itemCode) continue;
+            if (items[i].itemCount < 1) continue;
+            if (remainCount <=  items[i].itemCount)
+            {
+                items[i].itemCount -= remainCount;
+                remainCount = 0;
+            } else
+            {
+                remainCount -= items[i].itemCount;
+                items[i].itemCount = 0;
+            }
+
+            if (remainCount <= 0) return;
+        }
     }
 
     protected virtual ItemInventory GetItemNotFullStack(ItemCode itemCode)

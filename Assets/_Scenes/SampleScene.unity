@@ -1828,6 +1828,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 811165674}
+  - {fileID: 1539862042}
   m_Father: {fileID: 1361701813}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &747199846
@@ -1844,9 +1845,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSlot: 70
   items:
+  - itemProfile: {fileID: 11400000, guid: 421868c616f3e1141b3e2f5c325e7da3, type: 2}
+    itemCount: 1
+    maxStack: 1
+    level: 2
   - itemProfile: {fileID: 11400000, guid: e78dc4cf977f41344850626e626253ba, type: 2}
-    itemCount: 4
+    itemCount: 2
     maxStack: 7
+    level: 0
 --- !u!1 &798781957
 GameObject:
   m_ObjectHideFlags: 0
@@ -3280,6 +3286,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1240820194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1539862041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1539862042}
+  - component: {fileID: 1539862043}
+  m_Layer: 0
+  m_Name: ItemUpgrade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1539862042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539862041}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 747199845}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1539862043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539862041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd124032e11da304091dee228603c668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inventory: {fileID: 747199846}
 --- !u!1 &1591314542
 GameObject:
   m_ObjectHideFlags: 0
