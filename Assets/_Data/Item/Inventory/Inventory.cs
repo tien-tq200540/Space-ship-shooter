@@ -62,8 +62,10 @@ public class Inventory : TienMonoBehaviour
                 items[i].itemCount = 0;
             }
 
-            if (remainCount <= 0) return;
+            if (remainCount <= 0) break;
+            this.ClearEmptyItem(itemCode);
         }
+        
     }
 
     protected virtual ItemInventory GetItemNotFullStack(ItemCode itemCode)
@@ -108,6 +110,18 @@ public class Inventory : TienMonoBehaviour
     {
         if (itemInventory == null) return 0;
         return itemInventory.maxStack;
+    }
+
+    protected virtual void ClearEmptyItem(ItemCode itemCode)
+    {
+        for (int i = this.items.Count - 1; i >= 0; i--)
+        {
+            if (items[i].itemCount == 0)
+            {
+                
+                this.items.RemoveAt(i);
+            }
+        }
     }
 
     //public virtual bool AddItem(ItemCode itemCode, int addCount)
