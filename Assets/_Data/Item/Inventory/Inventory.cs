@@ -112,6 +112,17 @@ public class Inventory : TienMonoBehaviour
         return itemInventory.maxStack;
     }
 
+    public virtual int GetTotalItem(ItemCode itemCode)
+    {
+        int total = 0;
+        foreach (var item in this.items)
+        {
+            if (item.itemProfile.itemCode != itemCode) continue;
+            total += item.itemCount;
+        }
+        return total;
+    }
+
     protected virtual void ClearEmptyItem(ItemCode itemCode)
     {
         for (int i = this.items.Count - 1; i >= 0; i--)

@@ -44,21 +44,10 @@ public class ItemUpgrade : InventoryAbstract
         foreach (var ingredient in itemUpgradeRecipe.ingredients)
         {
             ItemCode itemCode = ingredient.item.itemCode;
-            int totalItem = GetTotalItem(itemCode);
+            int totalItem = this.inventory.GetTotalItem(itemCode);
             if (totalItem < ingredient.count) return false;  
         }
         return true;
-    }
-
-    protected virtual int GetTotalItem(ItemCode itemCode)
-    {
-        int total = 0;
-        foreach (var item in this.inventory.Items)
-        {
-            if (item.itemProfile.itemCode != itemCode) continue;
-            total += item.itemCount;
-        }
-        return total;
     }
 
     protected virtual void DeductIngredients(ItemInventory itemInventory, int currentLevel)
