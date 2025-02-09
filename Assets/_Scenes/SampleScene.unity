@@ -657,7 +657,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332386458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 435eef7d4e86be84fb91faa1de62aea5, type: 3}
   m_Name: 
@@ -1104,6 +1104,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDespawn: {fileID: 466355254}
   itemPickupable: {fileID: 798781959}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: 4f8e103eb1dc9b744a283862cabfc51e, type: 2}
+    itemCount: 1
+    maxStack: 7
+    level: 0
 --- !u!1 &582020482
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,7 +1305,7 @@ GameObject:
   - component: {fileID: 595790169}
   - component: {fileID: 595790170}
   m_Layer: 0
-  m_Name: ItemDrop
+  m_Name: InventoryDrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1774,6 +1779,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDespawn: {fileID: 955444163}
   itemPickupable: {fileID: 744326735}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: e78dc4cf977f41344850626e626253ba, type: 2}
+    itemCount: 1
+    maxStack: 7
+    level: 0
 --- !u!1 &744326733
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,6 +2465,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDespawn: {fileID: 820944164}
   itemPickupable: {fileID: 1332094039}
+  itemInventory:
+    itemProfile: {fileID: 11400000, guid: 421868c616f3e1141b3e2f5c325e7da3, type: 2}
+    itemCount: 1
+    maxStack: 7
+    level: 0
 --- !u!1 &1107807137
 GameObject:
   m_ObjectHideFlags: 0

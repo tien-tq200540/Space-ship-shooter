@@ -10,11 +10,15 @@ public class ItemCtrl : TienMonoBehaviour
     [SerializeField] protected ItemPickupable itemPickupable;
     public ItemPickupable ItemPickupable => itemPickupable;
 
+    [SerializeField] protected ItemInventory itemInventory;
+    public ItemInventory ItemInventory => itemInventory;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadItemDespawn();
         LoadItemPickupable();
+        LoadItemInventory();
     }
 
     protected virtual void LoadItemDespawn()
@@ -29,5 +33,19 @@ public class ItemCtrl : TienMonoBehaviour
         if (this.itemPickupable != null) return;
         this.itemPickupable = GetComponentInChildren<ItemPickupable>();
         Debug.Log($"{transform.name}: LoadItemPickupable", gameObject);
+    }
+
+    protected virtual void LoadItemInventory()
+    {
+        if (this.itemInventory.itemProfile != null) return;
+        ItemCode itemCode = ItemParser.FromString(transform.name);
+        ItemProfileSO itemProfile = ItemProfileSO.GetItemProfileByItemCode(itemCode);
+        itemInventory.itemProfile = itemProfile;
+        itemInventory.itemCount = 1;
+        Debug.Log($"{transform.name}: LoadItemInventory", gameObject);
+    }
+    public virtual void SetItemInventory(ItemInventory itemInventory)
+    {
+        this.itemInventory = itemInventory;    
     }
 }

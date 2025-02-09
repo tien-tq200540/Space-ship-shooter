@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ItemProfile", menuName = "SO/ItemProfile")]
@@ -10,4 +11,15 @@ public class ItemProfileSO : ScriptableObject
     public string itemName = "no-name";
     public int defaultMaxStack = 7;
     public List<ItemRecipe> upgradeLevels = new();
+
+    public static ItemProfileSO GetItemProfileByItemCode(ItemCode itemCode)
+    {
+        var profiles = Resources.LoadAll("Item", typeof(ItemProfileSO));
+        foreach (ItemProfileSO profile in profiles.Cast<ItemProfileSO>())
+        {
+            if (profile.itemCode != itemCode) continue;
+            return profile;
+        }
+        return null;
+    }
 }

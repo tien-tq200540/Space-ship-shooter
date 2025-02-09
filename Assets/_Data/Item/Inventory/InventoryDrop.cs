@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemInventoryDrop : InventoryAbstract
+public class InventoryDrop : InventoryAbstract
 {
     protected override void Start()
     {
@@ -12,16 +12,16 @@ public class ItemInventoryDrop : InventoryAbstract
 
     protected virtual void Test()
     {
-        DropItem(0);
-    }
-
-
-    protected virtual void DropItem(int itemIndex)
-    {
-        ItemInventory itemInventory = this.inventory.Items[itemIndex];
         Vector3 dropPos = transform.position;
         dropPos.x += 1;
-        ItemDropSpawner.Instance.Drop(itemInventory, dropPos, transform.rotation);
+        DropItemByIndex(0, dropPos, transform.rotation);
     }
 
+    protected virtual void DropItemByIndex(int itemIndex, Vector3 dropPos, Quaternion dropRot)
+    {
+        ItemInventory itemInventory = this.inventory.Items[itemIndex];
+        
+        ItemDropSpawner.Instance.Drop(itemInventory, dropPos, transform.rotation);
+        this.inventory.Items.Remove(itemInventory);
+    }
 }

@@ -13,8 +13,26 @@ public class Inventory : TienMonoBehaviour
     {
         base.Start();
         //for testing
-        AddItem(ItemCode.IronOre, 10);
-        AddItem(ItemCode.GoldOre, 10);
+        AddItem(ItemCode.IronOre, 20);
+        AddItem(ItemCode.GoldOre, 20);
+    }
+
+    public virtual bool AddItem(ItemInventory itemInventory)
+    {
+        ItemProfileSO itemProfile = itemInventory.itemProfile;
+        int addCount = itemInventory.itemCount;
+        ItemCode itemCode = itemProfile.itemCode;
+        ItemType itemType = itemProfile.itemType;
+
+        if (itemType == ItemType.Equipment) return this.AddEquipment(itemInventory);
+        return this.AddItem(itemCode, addCount); ;
+    }
+
+    public virtual bool AddEquipment(ItemInventory itemInventory)
+    {
+        if (this.IsInventoryFull()) return false;
+        this.items.Add(itemInventory);
+        return true;
     }
 
     public virtual bool AddItem(ItemCode itemCode , int addCount)
@@ -63,9 +81,8 @@ public class Inventory : TienMonoBehaviour
             }
 
             if (remainCount <= 0) break;
-            this.ClearEmptyItem(itemCode);
+            this.ClearEmptySlot(itemCode);
         }
-        
     }
 
     protected virtual ItemInventory GetItemNotFullStack(ItemCode itemCode)
@@ -123,7 +140,7 @@ public class Inventory : TienMonoBehaviour
         return total;
     }
 
-    protected virtual void ClearEmptyItem(ItemCode itemCode)
+    protected virtual void ClearEmptySlot(ItemCode itemCode)
     {
         for (int i = this.items.Count - 1; i >= 0; i--)
         {

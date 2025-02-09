@@ -9,8 +9,8 @@ public class PlayerPickable : PlayerAbstract
         if (itemPickupable == null) return;
 
         //Add item to inventory
-        ItemCode itemCode = itemPickupable.GetItemCode();
-        if (this.playerCtrl.CurrentShip.Inventory.AddItem(itemCode, 1))
+        ItemInventory itemInventory = itemPickupable.ItemCtrl.ItemInventory;
+        if (this.playerCtrl.CurrentShip.Inventory.AddItem(itemInventory))
         {
             itemPickupable.Picked();
         }

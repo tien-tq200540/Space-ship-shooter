@@ -7,7 +7,9 @@ public class ItemUpgrade : InventoryAbstract
     protected override void Start()
     {
         base.Start();
+        Invoke(nameof(this.Test), 3);
         Invoke(nameof(this.Test), 5);
+        Invoke(nameof(this.Test), 7);
     }
 
     protected virtual void Test()
@@ -23,9 +25,11 @@ public class ItemUpgrade : InventoryAbstract
         ItemInventory itemInventory = this.inventory.Items[itemIndex];
         if (itemInventory == null) return false;
 
+        //Get the recipe of this level
         if (!IsItemUpgradeable(itemInventory, itemInventory.level)) return false;
-        if (!HasEnoughIngredients(itemInventory, itemInventory.level)) return false;
-        DeductIngredients(itemInventory, itemInventory.level);
+        List<ItemRecipeIngredient> itemRecipeIngredients = itemInventory.itemProfile.upgradeLevels[itemInventory.level].ingredients;
+        if (!HasEnoughIngredients(itemRecipeIngredients)) return false;
+        DeductIngredients(itemRecipeIngredients);
         itemInventory.level++;
         return true;
     }
@@ -38,10 +42,9 @@ public class ItemUpgrade : InventoryAbstract
         return true;
     }
 
-    protected virtual bool HasEnoughIngredients(ItemInventory itemInventory, int currentLevel)
+    protected virtual bool HasEnoughIngredients(List<ItemRecipeIngredient> itemRecipeIngredients)
     {
-        ItemRecipe itemUpgradeRecipe = itemInventory.itemProfile.upgradeLevels[currentLevel];
-        foreach (var ingredient in itemUpgradeRecipe.ingredients)
+        foreach (var ingredient in itemRecipeIngredients)
         {
             ItemCode itemCode = ingredient.item.itemCode;
             int totalItem = this.inventory.GetTotalItem(itemCode);
@@ -50,10 +53,9 @@ public class ItemUpgrade : InventoryAbstract
         return true;
     }
 
-    protected virtual void DeductIngredients(ItemInventory itemInventory, int currentLevel)
+    protected virtual void DeductIngredients(List<ItemRecipeIngredient> itemRecipeIngredients)
     {
-        ItemRecipe itemUpgradeRecipe = itemInventory.itemProfile.upgradeLevels[currentLevel];
-        foreach (var ingredient in itemUpgradeRecipe.ingredients)
+        foreach (var ingredient in itemRecipeIngredients)
         {
             ItemCode itemCode = ingredient.item.itemCode;
             this.inventory.DeductItem(itemCode, ingredient.count);
