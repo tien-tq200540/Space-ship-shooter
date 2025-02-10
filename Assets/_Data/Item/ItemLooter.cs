@@ -46,9 +46,9 @@ public class ItemLooter : TienMonoBehaviour
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (!other.TryGetComponent<ItemPickupable>(out var itemPickupable)) return;
-        
+
         //Add item to inventory
-        ItemInventory itemInventory = itemPickupable.ItemCtrl.ItemInventory;
+        ItemInventory itemInventory = itemPickupable.ItemCtrl.CurItemInventory;
         if (this.inventory.AddItem(itemInventory))
         {
             //noti for itemPickupable that we pick this item, so despawn it

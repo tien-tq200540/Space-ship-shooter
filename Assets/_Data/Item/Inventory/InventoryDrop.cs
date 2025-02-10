@@ -8,6 +8,7 @@ public class InventoryDrop : InventoryAbstract
     {
         base.Start();
         Invoke(nameof(this.Test), 10);
+        Invoke(nameof(this.Test2), 30);
     }
 
     protected virtual void Test()
@@ -15,6 +16,13 @@ public class InventoryDrop : InventoryAbstract
         Vector3 dropPos = transform.position;
         dropPos.x += 1;
         DropItemByIndex(0, dropPos, transform.rotation);
+    }
+
+    protected virtual void Test2()
+    {
+        Vector3 dropPos = transform.position;
+        dropPos.x += 1;
+        DropItemByIndex(4, dropPos, transform.rotation);
     }
 
     protected virtual void DropItemByIndex(int itemIndex, Vector3 dropPos, Quaternion dropRot)
