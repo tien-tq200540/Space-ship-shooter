@@ -7,8 +7,8 @@ public class InventoryDrop : InventoryAbstract
     protected override void Start()
     {
         base.Start();
-        Invoke(nameof(this.Test), 10);
-        Invoke(nameof(this.Test2), 30);
+        //Invoke(nameof(this.Test), 10);
+        //Invoke(nameof(this.Test2), 30);
     }
 
     protected virtual void Test()
