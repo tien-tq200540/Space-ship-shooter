@@ -173,7 +173,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1653469787}
   junkDespawn: {fileID: 682187910}
-  junkSO: {fileID: 11400000, guid: 3ab1ae2877682dc448a55725c0f0a53a, type: 2}
+  shootableObjectSO: {fileID: 0}
 --- !u!1 &28011081
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1367866150}
   junkDespawn: {fileID: 148462298}
-  junkSO: {fileID: 11400000, guid: 0ffac863f1e765b449b9c14443554931, type: 2}
+  shootableObjectSO: {fileID: 0}
 --- !u!1 &330528150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2473,7 +2473,7 @@ Transform:
   m_GameObject: {fileID: 706796140}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -9.09, y: 4.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3168,7 +3168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 583015320}
   junkDespawn: {fileID: 305776244}
-  junkSO: {fileID: 11400000, guid: 87c6b8611f079214391e7c9e0b004e82, type: 2}
+  shootableObjectSO: {fileID: 11400000, guid: 08247859a31cbc145bd37411d2e641f3, type: 2}
 --- !u!1 &955444160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,7 +3685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 1742912753}
   junkDespawn: {fileID: 932369207}
-  junkSO: {fileID: 11400000, guid: 3ab1ae2877682dc448a55725c0f0a53a, type: 2}
+  shootableObjectSO: {fileID: 11400000, guid: b5b30a76841f2284dbf05d5a5c8de5a1, type: 2}
 --- !u!1 &1183710323
 GameObject:
   m_ObjectHideFlags: 0
@@ -3783,7 +3783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 231085020}
   junkDespawn: {fileID: 1528032415}
-  junkSO: {fileID: 11400000, guid: 0ffac863f1e765b449b9c14443554931, type: 2}
+  shootableObjectSO: {fileID: 11400000, guid: 5f7d49a86de9c554babafee16bd5d4e3, type: 2}
 --- !u!1 &1279697946
 GameObject:
   m_ObjectHideFlags: 0
@@ -3835,7 +3835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 375745982}
   junkDespawn: {fileID: 28011082}
-  junkSO: {fileID: 11400000, guid: 87c6b8611f079214391e7c9e0b004e82, type: 2}
+  shootableObjectSO: {fileID: 0}
 --- !u!1 &1332094037
 GameObject:
   m_ObjectHideFlags: 0
