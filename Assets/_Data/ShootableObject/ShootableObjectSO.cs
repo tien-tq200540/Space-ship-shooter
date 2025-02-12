@@ -5,7 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ShootableObject", menuName = "SO/ShootableObject")]
 public class ShootableObjectSO : ScriptableObject
 {
-    public string objectName = "ShootableObject";
+    public string objName = "ShootableObject";
+    public ObjectType objectType;
     public int hpMax = 2;
     public List<DropRate> dropList = new();
 }
