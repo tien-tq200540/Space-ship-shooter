@@ -2,22 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipMovement : MonoBehaviour
+public class ShipMovement : TienMonoBehaviour
 {
     [SerializeField] protected Vector3 targetPosition;
-    [SerializeField] protected float speed = 0.1f;
-    private void FixedUpdate()
+    [SerializeField] protected float speed = 0.01f;
+    [SerializeField] protected float distance = 1f;
+    [SerializeField] protected float minDistance = 1f;
+    protected virtual void FixedUpdate()
     {
-        this.GetTargetPosition();
         this.LookAtTarget();
         this.Moving();
-    }
-
-    //Target position to move our ship to
-    protected virtual void GetTargetPosition()
-    {
-        this.targetPosition = InputManager.Instance.MouseWorldPos;
-        this.targetPosition.z = 0f;
     }
 
     protected virtual void LookAtTarget()
@@ -30,6 +24,9 @@ public class ShipMovement : MonoBehaviour
 
     protected virtual void Moving()
     {
+        this.distance = Vector3.Distance(this.transform.position, this.targetPosition);
+        if (this.distance < minDistance) return;
+
         Vector3 newPos = Vector3.Lerp(transform.parent.position, this.targetPosition, speed);
         transform.parent.position = newPos;
     }

@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JunkSpawnerRandom : TienMonoBehaviour
+public class SpawnerRandom : TienMonoBehaviour
 {
     [Header("Junk Random")]
-    [SerializeField] protected JunkSpawnerCtrl junkSpawnerCtrl;
+    [SerializeField] protected SpawnerCtrl spawnerCtrl;
     [SerializeField] protected float randomDelay = 1f;
     [SerializeField] protected float randomTimer = 0f;
     [SerializeField] protected int randomLimit = 9;
@@ -13,22 +13,22 @@ public class JunkSpawnerRandom : TienMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadJunkCtrl();
+        LoadCtrl();
     }
 
-    protected virtual void LoadJunkCtrl()
+    protected virtual void LoadCtrl()
     {
-        if (this.junkSpawnerCtrl != null) return;
-        this.junkSpawnerCtrl = GetComponent<JunkSpawnerCtrl>();
-        Debug.Log($"{transform.name}: LoadJunkCtrl", gameObject);
+        if (this.spawnerCtrl != null) return;
+        this.spawnerCtrl = GetComponent<SpawnerCtrl>();
+        Debug.Log($"{transform.name}: LoadCtrl", gameObject);
     }
 
     private void FixedUpdate()
     {
-        this.JunkSpawning();
+        this.Spawning();
     }
 
-    protected virtual void JunkSpawning()
+    protected virtual void Spawning()
     {
         if (this.RandomReachLimit()) return;
 
@@ -39,11 +39,11 @@ public class JunkSpawnerRandom : TienMonoBehaviour
         }
         this.randomTimer = 0f;
 
-        Vector3 pos = this.junkSpawnerCtrl.JunkSpawnPoints.GetRandom().position;
+        Vector3 pos = this.spawnerCtrl.SpawnPoints.GetRandom().position;
         Quaternion rot = transform.rotation;
-        Transform prefab = this.junkSpawnerCtrl.JunkSpawner.RandomPrefab();
+        Transform prefab = this.spawnerCtrl.Spawner.RandomPrefab();
 
-        Transform obj = junkSpawnerCtrl.JunkSpawner.Spawn(prefab, pos, rot);
+        Transform obj = spawnerCtrl.Spawner.Spawn(prefab, pos, rot);
         obj.gameObject.SetActive(true);
 
        //Invoke(nameof(this.JunkSpawning), 1f);
@@ -51,6 +51,6 @@ public class JunkSpawnerRandom : TienMonoBehaviour
 
     protected virtual bool RandomReachLimit()
     {
-        return this.junkSpawnerCtrl.JunkSpawner.SpawnedCount >= this.randomLimit;
+        return this.spawnerCtrl.Spawner.SpawnedCount >= this.randomLimit;
     }
 }
