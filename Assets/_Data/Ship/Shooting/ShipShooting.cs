@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipShooting : MonoBehaviour
+public abstract class ShipShooting : TienMonoBehaviour
 {
     [SerializeField] protected bool isShooting = false;
-    [SerializeField] protected float shootDelay = 1f;
+    [SerializeField] protected float shootDelay = 0.2f;
     [SerializeField] protected float shootTimer = 0f;
-    [SerializeField] protected Transform bulletPrefab;
 
     private void Update()
     {
@@ -38,8 +37,5 @@ public class ShipShooting : MonoBehaviour
         newBullet.gameObject.SetActive(true);
     }
 
-    protected virtual bool IsShooting()
-    {
-        return this.isShooting = InputManager.Instance.OnFiring == 1;
-    }
+    protected abstract bool IsShooting();
 }
