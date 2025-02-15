@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3e8654e35865428419ae2ae614123cad, type: 3}
-  m_Name: MotherShip_1
+  m_Name: MotherShip_2
   m_EditorClassIdentifier: 
-  objName: MotherShip_1
+  objName: MotherShip_2
   objectType: 3
-  hpMax: 200
+  hpMax: 400
   dropList:
   - itemSO: {fileID: 11400000, guid: 4f8e103eb1dc9b744a283862cabfc51e, type: 2}
     dropRate: 0

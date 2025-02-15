@@ -39,7 +39,7 @@ public class SpawnerRandom : TienMonoBehaviour
         }
         this.randomTimer = 0f;
 
-        Vector3 pos = this.spawnerCtrl.SpawnPoints.GetRandom().position;
+        Vector3 pos = this.spawnerCtrl.SpawnPoints.GetRandomSpawnPoint().position;
         Quaternion rot = transform.rotation;
         Transform prefab = this.spawnerCtrl.Spawner.RandomPrefab();
 

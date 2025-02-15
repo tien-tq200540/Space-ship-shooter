@@ -22,7 +22,7 @@ public class SpawnPoints : TienMonoBehaviour
         Debug.Log($"{transform.name}: LoadSpawnPoints", gameObject);
     }
 
-    public virtual Transform GetRandom()
+    public virtual Transform GetRandomSpawnPoint()
     {
         int rand = Random.Range(0, spawnPoints.Count);
         return this.spawnPoints[rand];
