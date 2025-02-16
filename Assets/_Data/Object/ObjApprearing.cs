@@ -10,6 +10,14 @@ public abstract class ObjApprearing : TienMonoBehaviour
     public bool IsApprearing => isAppearing;
     public bool Appear => appear;
 
+    [SerializeField] protected List<IObjectAppearObserver> observers = new List<IObjectAppearObserver>();
+
+    protected override void Start()
+    {
+        base.Start();
+        OnAppearStart();
+    }
+
     protected virtual void FixedUpdate()
     {
         this.Appearing();
@@ -21,5 +29,27 @@ public abstract class ObjApprearing : TienMonoBehaviour
     {
         this.appear = true;
         this.isAppearing = false;
+        OnAppearFinish();
+    }
+
+    protected virtual void OnAppearStart()
+    {
+        foreach (IObjectAppearObserver observer in observers)
+        {
+            observer.OnAppearStart();
+        }
+    }
+
+    protected virtual void OnAppearFinish()
+    {
+        foreach (IObjectAppearObserver observer in observers)
+        {
+            observer.OnAppearFinish();
+        }
+    }
+
+    public virtual void AddObserver(IObjectAppearObserver observer)
+    {
+        this.observers.Add(observer);
     }
 }

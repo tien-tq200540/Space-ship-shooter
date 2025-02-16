@@ -20,6 +20,8 @@ public class ObjApprearingBigger : ObjApprearing
     {
         transform.parent.localScale = Vector3.zero;
         this.currentScale = this.startScale;
+        this.isAppearing = true;
+        this.appear = false;
     }
 
     protected override void Appearing()

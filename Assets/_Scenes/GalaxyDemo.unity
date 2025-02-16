@@ -677,6 +677,7 @@ GameObject:
   m_Component:
   - component: {fileID: 147388329}
   - component: {fileID: 147388330}
+  - component: {fileID: 147388331}
   m_Layer: 0
   m_Name: ObjApprearing
   m_TagString: Untagged
@@ -717,6 +718,20 @@ MonoBehaviour:
   startScale: 0.1
   maxScale: 1
   speedScale: 0.01
+--- !u!114 &147388331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147388328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b89a9e19b536449b4526ffa336258f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootableObjectCtrl: {fileID: 561762346}
+  objApprearing: {fileID: 147388330}
 --- !u!1 &148462297
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,7 +1324,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332386458}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8b7315a310b0f41a0efe85578438e1, type: 3}
   m_Name: 
@@ -2216,6 +2231,7 @@ MonoBehaviour:
   model: {fileID: 442625457376938560}
   despawn: {fileID: 1012282200}
   shootableObjectSO: {fileID: 11400000, guid: 8a1efbe23cd8926488ac0b840af46c8d, type: 2}
+  objShooting: {fileID: 1360184700}
   spawnPoints: {fileID: 0}
 --- !u!1 &569991974
 GameObject:
@@ -4649,6 +4665,7 @@ MonoBehaviour:
   model: {fileID: 6484142460116833492}
   despawn: {fileID: 376359563}
   shootableObjectSO: {fileID: 11400000, guid: f870568dc26900d47a1300f227401cf0, type: 2}
+  objShooting: {fileID: 0}
   spawnPoints: {fileID: 1409693152}
 --- !u!4 &1298154147
 Transform:
@@ -5535,6 +5552,7 @@ MonoBehaviour:
   model: {fileID: 5490677817378833150}
   despawn: {fileID: 112333013}
   shootableObjectSO: {fileID: 11400000, guid: 6e915e0a5f32d264faf756189d184f15, type: 2}
+  objShooting: {fileID: 0}
   spawnPoints: {fileID: 0}
 --- !u!4 &1527559837
 Transform:
