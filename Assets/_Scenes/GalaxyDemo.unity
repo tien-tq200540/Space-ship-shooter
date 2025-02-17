@@ -951,6 +951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.001
+  rotSpeed: 0.05
   distance: 1
   minDistance: 1
   target: {fileID: 1361701813}
@@ -1324,13 +1325,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332386458}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aa8b7315a310b0f41a0efe85578438e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.01
+  rotSpeed: 3
   distance: 1
   minDistance: 1
 --- !u!1 &356123158
@@ -2333,6 +2335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.005
+  rotSpeed: 3
   distance: 1
   minDistance: 1
   target: {fileID: 1361701813}
@@ -3625,7 +3628,7 @@ GameObject:
   - component: {fileID: 829419290}
   - component: {fileID: 829419291}
   m_Layer: 0
-  m_Name: ShipShooting
+  m_Name: ObjShooting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4665,7 +4668,7 @@ MonoBehaviour:
   model: {fileID: 6484142460116833492}
   despawn: {fileID: 376359563}
   shootableObjectSO: {fileID: 11400000, guid: f870568dc26900d47a1300f227401cf0, type: 2}
-  objShooting: {fileID: 0}
+  objShooting: {fileID: 829419291}
   spawnPoints: {fileID: 1409693152}
 --- !u!4 &1298154147
 Transform:
@@ -6041,6 +6044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
   speed: 0.01
+  rotSpeed: 3
   distance: 1
   minDistance: 1
   target: {fileID: 1361701813}
