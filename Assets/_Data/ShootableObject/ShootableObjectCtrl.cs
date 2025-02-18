@@ -16,6 +16,12 @@ public abstract class ShootableObjectCtrl : TienMonoBehaviour
     [SerializeField] protected ObjShooting objShooting;
     public ObjShooting ObjShooting => objShooting;
 
+    [SerializeField] protected ObjMovement objMovement;
+    public ObjMovement ObjMovement => objMovement;
+
+    [SerializeField] protected ObjLookAtTarget objLookAtTarget;
+    public ObjLookAtTarget ObjLookAtTarget => objLookAtTarget;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -23,6 +29,8 @@ public abstract class ShootableObjectCtrl : TienMonoBehaviour
         LoadDespawn();
         LoadSO();
         LoadObjShooting();
+        LoadObjMovement();
+        LoadObjLookAtTarget();
     }
 
     protected virtual void LoadModel()
@@ -32,10 +40,25 @@ public abstract class ShootableObjectCtrl : TienMonoBehaviour
         Debug.Log($"{transform.name}: LoadModel", gameObject);
     }
 
+    protected virtual void LoadObjLookAtTarget()
+    {
+        if (this.objLookAtTarget != null) return;
+        this.objLookAtTarget = GetComponentInChildren<ObjLookAtTarget>();
+        Debug.Log($"{transform.name}: LoadObjLookAtTarget", gameObject);
+    }
+
+    protected virtual void LoadObjMovement()
+    {
+        if (this.objMovement != null) return;
+        this.objMovement = GetComponentInChildren<ObjMovement>();
+        Debug.Log($"{transform.name}: LoadObjMovement", gameObject);
+    }
+
     protected virtual void LoadObjShooting()
     {
         if (this.objShooting != null) return;
         this.objShooting = GetComponentInChildren<ObjShooting>();
+        this.objShooting.gameObject.SetActive(false);
         Debug.Log($"{transform.name}: LoadObjShooting", gameObject);
     }
 
