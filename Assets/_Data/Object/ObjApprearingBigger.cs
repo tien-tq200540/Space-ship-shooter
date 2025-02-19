@@ -13,7 +13,7 @@ public class ObjApprearingBigger : ObjApprearing
     protected override void OnEnable()
     {
         base.OnEnable();
-        InitScale();
+        InitScale();    
     }
 
     protected virtual void InitScale()

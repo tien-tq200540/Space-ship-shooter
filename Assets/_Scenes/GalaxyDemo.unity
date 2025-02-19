@@ -527,7 +527,7 @@ Transform:
   m_GameObject: {fileID: 103403990}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -741,7 +741,7 @@ Transform:
   m_GameObject: {fileID: 147388328}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.16, y: -3.44, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2311,8 +2311,8 @@ MonoBehaviour:
   despawn: {fileID: 1012282200}
   shootableObjectSO: {fileID: 11400000, guid: 8a1efbe23cd8926488ac0b840af46c8d, type: 2}
   objShooting: {fileID: 1360184700}
-  objMovement: {fileID: 0}
-  objLookAtTarget: {fileID: 0}
+  objMovement: {fileID: 751481648}
+  objLookAtTarget: {fileID: 464148928}
   spawnPoints: {fileID: 0}
 --- !u!1 &569991974
 GameObject:
@@ -4914,7 +4914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootableObjectCtrl: {fileID: 1298154146}
-  speed: 0.005
+  speed: 0.01
   rotSpeed: 0.1
 --- !u!1 &1332094037
 GameObject:
@@ -5046,7 +5046,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1360184699
 Transform:
   m_ObjectHideFlags: 0
@@ -5106,7 +5106,7 @@ Transform:
   m_GameObject: {fileID: 1361701812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalPosition: {x: 6.61, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

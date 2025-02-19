@@ -92,7 +92,8 @@ public abstract class Spawner : TienMonoBehaviour
     public virtual Transform Spawn(Transform prefab, Vector3 spawnPos, Quaternion rotation)
     {
         Transform newPrefab = GetObjectFromPool(prefab);
-        newPrefab.SetPositionAndRotation(spawnPos, rotation);
+        newPrefab.position = spawnPos;
+        newPrefab.rotation = rotation;
         newPrefab.parent = holder;
         this.spawnedCount++;
         return newPrefab;

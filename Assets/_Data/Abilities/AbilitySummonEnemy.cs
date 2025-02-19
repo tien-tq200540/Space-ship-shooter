@@ -15,4 +15,11 @@ public class AbilitySummonEnemy : AbilitySummon
         this.spawner = GameObject.Find("EnemySpawner").GetComponent<Spawner>();
         Debug.Log($"{transform.name}: LoadSpawner", gameObject);
     }
+
+    protected override Transform Summon()
+    {
+        Transform minion = base.Summon();
+        minion.parent = this.abilities.AbilityObjectCtrl.transform;
+        return minion; 
+    }
 }

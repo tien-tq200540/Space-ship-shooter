@@ -18,6 +18,12 @@ public abstract class ObjApprearing : TienMonoBehaviour
         OnAppearStart();
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        OnAppearStart();
+    }
+
     protected virtual void FixedUpdate()
     {
         this.Appearing();
