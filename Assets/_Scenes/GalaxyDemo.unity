@@ -1877,7 +1877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
-  rotSpeed: 0.1
+  rotSpeed: 3
   player: {fileID: 1361701812}
 --- !u!1 &466355252
 GameObject:
@@ -2046,6 +2046,8 @@ MonoBehaviour:
   delay: 2
   isReady: 0
   spawner: {fileID: 533896593}
+  minions: []
+  minionLimit: 4
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
