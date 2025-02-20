@@ -111,4 +111,9 @@ public abstract class Spawner : TienMonoBehaviour
         int rand = Random.Range(0, this.prefabs.Count);
         return this.prefabs[rand];
     }
+
+    public virtual void Hold(Transform obj)
+    {
+        obj.parent = this.holder;
+    }
 }

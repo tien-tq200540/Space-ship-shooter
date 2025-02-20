@@ -22,6 +22,9 @@ public abstract class ShootableObjectCtrl : TienMonoBehaviour
     [SerializeField] protected ObjLookAtTarget objLookAtTarget;
     public ObjLookAtTarget ObjLookAtTarget => objLookAtTarget;
 
+    [SerializeField] protected Spawner spawner;
+    public Spawner Spawner => spawner;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -31,6 +34,14 @@ public abstract class ShootableObjectCtrl : TienMonoBehaviour
         LoadObjShooting();
         LoadObjMovement();
         LoadObjLookAtTarget();
+        LoadSpawner();
+    }
+
+    protected virtual void LoadSpawner()
+    {
+        if (this.spawner != null) return;
+        this.spawner = transform.parent?.parent?.GetComponent<Spawner>();
+        Debug.Log($"{transform.name}: LoadSpawner", gameObject);
     }
 
     protected virtual void LoadModel()
