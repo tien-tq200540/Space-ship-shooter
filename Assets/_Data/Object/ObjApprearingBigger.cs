@@ -26,6 +26,7 @@ public class ObjApprearingBigger : ObjApprearing
 
     protected override void Appearing()
     {
+        if (!this.isAppearing) return;
         this.currentScale += this.speedScale;
         transform.parent.localScale = new Vector3(1f, 1f, 1f) * this.currentScale;
         if (this.currentScale >= this.maxScale) ObjAppear();

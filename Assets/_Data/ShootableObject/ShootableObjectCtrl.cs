@@ -69,7 +69,7 @@ public abstract class ShootableObjectCtrl : TienMonoBehaviour
     {
         if (this.objShooting != null) return;
         this.objShooting = GetComponentInChildren<ObjShooting>();
-        this.objShooting.gameObject.SetActive(false);
+        //this.objShooting.gameObject.SetActive(false);
         Debug.Log($"{transform.name}: LoadObjShooting", gameObject);
     }
 
