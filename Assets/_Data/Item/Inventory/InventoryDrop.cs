@@ -29,7 +29,7 @@ public class InventoryDrop : InventoryAbstract
     {
         ItemInventory itemInventory = this.inventory.Items[itemIndex];
         
-        ItemDropSpawner.Instance.Drop(itemInventory, dropPos, transform.rotation);
+        ItemDropSpawner.Instance.DropFromInventory(itemInventory, dropPos, transform.rotation);
         this.inventory.Items.Remove(itemInventory);
     }
 }

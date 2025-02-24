@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [Serializable]
-public class DropRate
+public class ItemDropRate
 {
     public ItemProfileSO itemSO; //information about item
     //Information about item drop stats
