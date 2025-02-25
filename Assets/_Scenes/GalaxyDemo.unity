@@ -1632,6 +1632,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   junkCtrl: {fileID: 1771435041}
+  dropCount: 0
+  dropCountItems: []
 --- !u!4 &402521751
 Transform:
   m_ObjectHideFlags: 0

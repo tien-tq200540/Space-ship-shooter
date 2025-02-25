@@ -12,7 +12,7 @@ public class ItemDropTest : TienMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        InvokeRepeating(nameof(this.Dropping), 2, 0.5f);
+        InvokeRepeating(nameof(this.Dropping), 2, 0.1f);
     }
 
     protected virtual void Dropping()

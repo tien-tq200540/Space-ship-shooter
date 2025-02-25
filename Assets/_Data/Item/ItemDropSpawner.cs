@@ -34,16 +34,30 @@ public class ItemDropSpawner : Spawner
         return dropItems;
     }
 
+    /// <summary>
+    /// Drop item from dropable list
+    /// </summary>
+    /// <param name="items">List of item can drop from an object</param>
+    /// <returns>A list of dropped items in reality</returns>
     public virtual List<ItemDropRate> DropItems(List<ItemDropRate> items)
     {
         List<ItemDropRate> droppedItems = new();
 
         float rate, itemRate;
+        int itemDropMore;
         foreach (ItemDropRate item in items)
         {
             rate = Random.Range(0, 1f);
-            itemRate = item.dropRate * this.gameDropRate;
+            itemRate = item.dropRate/100000f * this.GetGameDropRate();
+            itemDropMore = Mathf.FloorToInt(itemRate);
+            
+            if (itemDropMore > 0)
+            {
+                itemRate -= itemDropMore;
+                for (int i = 0; i < itemDropMore; i++) droppedItems.Add(item);
+            }
 
+            //drop when meet the rate
             if (rate <= itemRate)
             {
                 droppedItems.Add(item);
@@ -51,6 +65,11 @@ public class ItemDropSpawner : Spawner
         }
 
         return droppedItems;
+    }
+
+    protected virtual float GetGameDropRate()
+    {
+        return this.gameDropRate;
     }
 
     public virtual Transform DropFromInventory(ItemInventory itemInventory, Vector3 dropPos, Quaternion dropRot)
