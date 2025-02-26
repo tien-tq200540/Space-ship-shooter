@@ -9,6 +9,7 @@ public class AbilityWarp : BaseAbility
     [SerializeField] protected bool isWarping = false;
     [SerializeField] protected Vector4 warpDirection;
     [SerializeField] protected float warpSpeed = 1f;
+    [SerializeField] protected float warpDistance = 2f;
 
     protected override void Update()
     {
@@ -33,9 +34,43 @@ public class AbilityWarp : BaseAbility
 
     protected virtual void WarpFinish()
     {
+        this.MoveObj();
         this.warpDirection.Set(0f, 0f, 0f, 0f);
         this.isWarping = false;
         Active();
+    }
+
+    protected virtual void MoveObj()
+    {
+        Transform obj = this.abilities.AbilityObjectCtrl.transform; //transform of the object we will move
+        Vector3 newPos = obj.position;
+
+        if (this.warpDirection.x == 1) newPos.x -= this.warpDistance;
+        if (this.warpDirection.y == 1) newPos.x += this.warpDistance;
+        if (this.warpDirection.z == 1) newPos.y += this.warpDistance;
+        if (this.warpDirection.w == 1) newPos.y -= this.warpDistance;
+
+        Quaternion fxRot = this.GetFxQuaternion();
+        Transform fx = FXSpawner.Instance.Spawn(FXSpawner.impactOne, obj.position, fxRot);
+        fx.gameObject.SetActive(true);
+
+        obj.position = newPos;
+    }
+
+    protected virtual Quaternion GetFxQuaternion()
+    {
+        Vector3 vector = new();
+        if (this.warpDirection.x == 1) vector.z = 0;
+        if (this.warpDirection.y == 1) vector.z = 180;
+        if (this.warpDirection.z == 1) vector.z = -90;
+        if (this.warpDirection.w == 1) vector.z = 90;
+
+        if (this.warpDirection.x == 1 && this.warpDirection.z == 1) vector.z = -45;
+        if (this.warpDirection.x == 1 && this.warpDirection.w == 1) vector.z = 45;
+        if (this.warpDirection.y == 1 && this.warpDirection.z == 1) vector.z = -135;
+        if (this.warpDirection.y == 1 && this.warpDirection.w == 1) vector.z = 135;
+
+        return Quaternion.Euler(vector);
     }
 
     protected virtual bool IsDirectionNotSet()
