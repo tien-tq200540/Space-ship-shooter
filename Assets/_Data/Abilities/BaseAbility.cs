@@ -31,6 +31,11 @@ public abstract class BaseAbility : TienMonoBehaviour
         this.Timing();
     }
 
+    protected virtual void Update()
+    {
+        //For override
+    }
+
     protected virtual void Timing()
     {
         if (this.isReady) return;

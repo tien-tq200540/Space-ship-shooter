@@ -49,11 +49,9 @@ public class InputManager : MonoBehaviour
         this.direction.z = (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) ? 1 : 0; // Up
         this.direction.w = (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) ? 1 : 0; // Down
 
-        
-        if (this.direction.x == 1) Debug.Log("Left");
-        if (this.direction.y == 1) Debug.Log("Right");
-        if (this.direction.z == 1) Debug.Log("Up");
-        if (this.direction.w == 1) Debug.Log("Down");
-        
+        //if (this.direction.x == 1) Debug.Log("Left");
+        //if (this.direction.y == 1) Debug.Log("Right");
+        //if (this.direction.z == 1) Debug.Log("Up");
+        //if (this.direction.w == 1) Debug.Log("Down");
     }
 }
