@@ -25,6 +25,9 @@ public abstract class ShootableObjectCtrl : TienMonoBehaviour
     [SerializeField] protected Spawner spawner;
     public Spawner Spawner => spawner;
 
+    [SerializeField] protected DamageReceiver damageReceiver;
+    public DamageReceiver DamageReceiver => damageReceiver;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -35,6 +38,14 @@ public abstract class ShootableObjectCtrl : TienMonoBehaviour
         LoadObjMovement();
         LoadObjLookAtTarget();
         LoadSpawner();
+        LoadDamageReceiver();
+    }
+
+    protected virtual void LoadDamageReceiver()
+    {
+        if (this.damageReceiver != null) return;
+        this.damageReceiver = transform.GetComponentInChildren<DamageReceiver>();
+        Debug.Log($"{transform.name}: LoadDamageReceiver", gameObject);
     }
 
     protected virtual void LoadSpawner()

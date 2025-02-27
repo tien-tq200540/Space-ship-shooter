@@ -47,7 +47,7 @@ public class JunkDamageReceiver : DamageReceiver
 
     protected override void Reborn()
     {
-        this.maxHp = this.junkCtrl.ShootableObjectSO.hpMax;
+        this.hpMax = this.junkCtrl.ShootableObjectSO.hpMax;
         base.Reborn();
     }
 }

@@ -8,8 +8,11 @@ public abstract class DamageReceiver : TienMonoBehaviour
     [Header("Damage Receiver")]
     [SerializeField] protected SphereCollider sphereCollider;
     [SerializeField] protected int hp = 1;
-    [SerializeField] protected int maxHp = 2;
+    [SerializeField] protected int hpMax = 2;
     [SerializeField] protected bool isDead;
+
+    public int HP => hp;
+    public int HPMax => hpMax;
 
     protected override void OnEnable()
     {
@@ -39,7 +42,7 @@ public abstract class DamageReceiver : TienMonoBehaviour
 
     protected virtual void Reborn()
     {
-        this.hp = this.maxHp;
+        this.hp = this.hpMax;
         this.isDead = false;
     }
 
@@ -47,7 +50,7 @@ public abstract class DamageReceiver : TienMonoBehaviour
     {
         if (this.isDead) return;
         this.hp += add;
-        if (this.hp > maxHp) this.hp = maxHp;
+        if (this.hp > hpMax) this.hp = hpMax;
     }
 
     public virtual void Deduct(int deduct)
