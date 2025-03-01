@@ -7,6 +7,7 @@ public class HPBar : TienMonoBehaviour
     [Header("HP Bar")]
     [SerializeField] protected SliderHP sliderHP;
     [SerializeField] protected ShootableObjectCtrl shootableObjectCtrl;
+    [SerializeField] protected FollowTarget followTarget;
 
     protected virtual void FixedUpdate()
     {
@@ -17,6 +18,14 @@ public class HPBar : TienMonoBehaviour
     {
         base.LoadComponents();
         this.LoadSliderHP();
+        this.LoadFollowTarget();
+    }
+
+    protected virtual void LoadFollowTarget()
+    {
+        if (this.followTarget != null) return;
+        this.followTarget = GetComponent<FollowTarget>();
+        Debug.Log($"{transform.name}: LoadFollowTarget", gameObject);
     }
 
     protected virtual void LoadSliderHP()
@@ -29,6 +38,11 @@ public class HPBar : TienMonoBehaviour
     public virtual void SetShootableObjCtrl(ShootableObjectCtrl shootableObjectCtrl)
     {
         this.shootableObjectCtrl = shootableObjectCtrl;
+    }
+
+    public virtual void SetFollowTarget(Transform target)
+    {
+        this.followTarget.SetTarget(target);
     }
 
     protected virtual void HPShowing()

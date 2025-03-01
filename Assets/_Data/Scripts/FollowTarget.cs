@@ -17,4 +17,9 @@ public class FollowTarget : TienMonoBehaviour
         if (this.target == null) return;
         transform.position = Vector3.Lerp(this.transform.position, target.position, speed * Time.fixedDeltaTime);
     }
+
+    public virtual void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
 }

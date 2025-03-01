@@ -78,7 +78,6 @@ public abstract class Spawner : TienMonoBehaviour
             Debug.LogWarning($"Prefab not found: {prefabName}");
             return null;
         }
-
         return this.Spawn(prefab, spawnPos, rotation);
     }
 
@@ -94,7 +93,7 @@ public abstract class Spawner : TienMonoBehaviour
         Transform newPrefab = GetObjectFromPool(prefab);
         newPrefab.position = spawnPos;
         newPrefab.rotation = rotation;
-        newPrefab.parent = holder;
+        newPrefab.SetParent(this.holder);
         this.spawnedCount++;
         return newPrefab;
     }
