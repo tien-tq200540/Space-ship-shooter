@@ -25,12 +25,12 @@ public class SliderHP : BaseSlider
         //Debug.Log($"NewValue = {newValue}");
     }
 
-    protected virtual void SetMaxHP(float value)
+    public virtual void SetMaxHP(float value)
     {
         this.maxHP = value;
     }
 
-    protected virtual void SetCurrentHP(float value)
+    public virtual void SetCurrentHP(float value)
     {
         this.currentHP = value;
     }

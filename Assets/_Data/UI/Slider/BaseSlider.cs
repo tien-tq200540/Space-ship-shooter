@@ -19,6 +19,13 @@ public abstract class BaseSlider : TienMonoBehaviour
         //For override
     }
 
+    protected virtual void AddOnChangedEvent()
+    {
+        this.slider.onValueChanged.AddListener(this.OnChanged);
+    }
+
+    protected abstract void OnChanged(float newValue);
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -31,11 +38,4 @@ public abstract class BaseSlider : TienMonoBehaviour
         slider = GetComponent<Slider>();
         Debug.Log($"{transform.name}: LoadSlider", gameObject);
     }
-
-    protected virtual void AddOnChangedEvent()
-    {
-        this.slider.onValueChanged.AddListener(this.OnChanged);
-    }
-
-    protected abstract void OnChanged(float newValue);
 }
