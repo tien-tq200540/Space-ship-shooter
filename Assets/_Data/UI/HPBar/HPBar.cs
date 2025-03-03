@@ -8,6 +8,7 @@ public class HPBar : TienMonoBehaviour
     [SerializeField] protected SliderHP sliderHP;
     [SerializeField] protected ShootableObjectCtrl shootableObjectCtrl;
     [SerializeField] protected FollowTarget followTarget;
+    [SerializeField] protected Spawner spawner;
 
     protected virtual void FixedUpdate()
     {
@@ -19,6 +20,14 @@ public class HPBar : TienMonoBehaviour
         base.LoadComponents();
         this.LoadSliderHP();
         this.LoadFollowTarget();
+        this.LoadSpawner();
+    }
+
+    protected virtual void LoadSpawner()
+    {
+        if (this.spawner != null) return;
+        this.spawner = transform.parent.parent.GetComponent<Spawner>();
+        Debug.Log($"{transform.name}: LoadSpawner", gameObject);
     }
 
     protected virtual void LoadFollowTarget()
@@ -48,6 +57,14 @@ public class HPBar : TienMonoBehaviour
     protected virtual void HPShowing()
     {
         if (this.shootableObjectCtrl == null) return;
+
+        bool isDead = this.shootableObjectCtrl.DamageReceiver.IsDead();
+        if (isDead)
+        {
+            spawner.Despawn(transform);
+            return;
+        }
+
         float maxHP = this.shootableObjectCtrl.DamageReceiver.HPMax;
         float curHP = this.shootableObjectCtrl.DamageReceiver.HP;
         this.sliderHP.SetMaxHP(maxHP);
