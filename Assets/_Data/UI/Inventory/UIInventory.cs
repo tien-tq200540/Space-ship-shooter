@@ -24,7 +24,7 @@ public class UIInventory : TienMonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-
+        this.ShowItem();
     }
 
     public virtual void Toggle()
@@ -44,5 +44,11 @@ public class UIInventory : TienMonoBehaviour
     {
         gameObject.SetActive(false);
         this.isOpen = false;
+    }
+
+    protected virtual void ShowItem()
+    {
+        if (!this.isOpen) return;
+        int itemCount = PlayerCtrl.Instance.CurrentShip.Inventory.Items.Count;
     }
 }
