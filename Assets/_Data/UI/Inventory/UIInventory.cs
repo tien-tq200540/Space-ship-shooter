@@ -19,7 +19,7 @@ public class UIInventory : TienMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        this.Close();
+        //this.Close();
     }
 
     protected virtual void FixedUpdate()
