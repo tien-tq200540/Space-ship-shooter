@@ -42,4 +42,14 @@ public class UIInvItemSpawner : Spawner
             this.Despawn(item);
         }
     }
+
+    public virtual void SpawnUIItem(ItemInventory item)
+    {
+        Transform uiItem = Spawn(normalUIItem, Vector3.zero, Quaternion.identity);
+        UIItemInventory uIItemInventory = uiItem.GetComponent<UIItemInventory>();
+        uIItemInventory.ShowItem(item);
+
+        uiItem.localScale = new Vector3(1f, 1f, 1f);
+        uiItem.gameObject.SetActive(true);
+    }
 }

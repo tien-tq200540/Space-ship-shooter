@@ -50,18 +50,14 @@ public class UIInventory : UIInventoryAbstract
     {
         if (!this.isOpen) return;
         this.ClearItems();
-        int itemCount = PlayerCtrl.Instance.CurrentShip.Inventory.Items.Count;
-        for (int i = 1; i <= itemCount; i++)
-        {
-            this.SpawnTest();
-        }
-    }
 
-    protected virtual void SpawnTest()
-    {
-        Transform uiItem = UIInvItemSpawner.Instance.Spawn(UIInvItemSpawner.normalUIItem, Vector3.zero, Quaternion.identity);
-        uiItem.localScale = new Vector3(1f, 1f, 1f);
-        uiItem.gameObject.SetActive(true);
+        List<ItemInventory> items = PlayerCtrl.Instance.CurrentShip.Inventory.Items;
+        UIInvItemSpawner spawner = UIInvItemSpawner.Instance;
+
+        foreach (ItemInventory item in items)
+        {
+            spawner.SpawnUIItem(item);
+        }
     }
 
     protected virtual void ClearItems()
