@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIInventory : TienMonoBehaviour
+public class UIInventory : UIInventoryAbstract
 {
     private static UIInventory instance;
     public static UIInventory Instance => instance;
 
-    protected bool isOpen = false;
+    protected bool isOpen = true;
 
     protected override void Awake()
     {
@@ -19,12 +19,12 @@ public class UIInventory : TienMonoBehaviour
     protected override void Start()
     {
         base.Start();
-        //this.Close();
+        InvokeRepeating(nameof(this.ShowItem), 1f, 1f);
     }
 
     protected virtual void FixedUpdate()
     {
-        this.ShowItem();
+        //this.ShowItem();
     }
 
     public virtual void Toggle()
@@ -36,19 +36,36 @@ public class UIInventory : TienMonoBehaviour
 
     public virtual void Open()
     {
-        gameObject.SetActive(true);
+       this.inventoryCtrl.gameObject.SetActive(true);
         this.isOpen = true;
     }
 
     public virtual void Close()
     {
-        gameObject.SetActive(false);
+        this.inventoryCtrl.gameObject.SetActive(false);
         this.isOpen = false;
     }
 
     protected virtual void ShowItem()
     {
         if (!this.isOpen) return;
+        this.ClearItems();
         int itemCount = PlayerCtrl.Instance.CurrentShip.Inventory.Items.Count;
+        for (int i = 1; i <= itemCount; i++)
+        {
+            this.SpawnTest();
+        }
+    }
+
+    protected virtual void SpawnTest()
+    {
+        Transform uiItem = UIInvItemSpawner.Instance.Spawn(UIInvItemSpawner.normalUIItem, Vector3.zero, Quaternion.identity);
+        uiItem.localScale = new Vector3(1f, 1f, 1f);
+        uiItem.gameObject.SetActive(true);
+    }
+
+    protected virtual void ClearItems()
+    {
+        UIInvItemSpawner.Instance.ClearItems();
     }
 }

@@ -34,4 +34,12 @@ public class UIInvItemSpawner : Spawner
         this.holder = inventoryCtrl.Content;
         Debug.Log($"{transform.name}: LoadHolder", gameObject);
     }
+
+    public virtual void ClearItems()
+    {
+        foreach(Transform item in this.holder)
+        {
+            this.Despawn(item);
+        }
+    }
 }

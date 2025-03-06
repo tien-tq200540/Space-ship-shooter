@@ -13,8 +13,9 @@ public class Inventory : TienMonoBehaviour
     {
         base.Start();
         //for testing
-        AddItem(ItemCode.IronOre, 20);
-        AddItem(ItemCode.GoldOre, 20);
+        AddItem(ItemCode.CopperSword, 1);
+        AddItem(ItemCode.IronOre, 10);
+        AddItem(ItemCode.GoldOre, 10);
     }
 
     public virtual bool AddItem(ItemInventory itemInventory)
