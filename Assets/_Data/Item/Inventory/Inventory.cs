@@ -106,6 +106,7 @@ public class Inventory : TienMonoBehaviour
             if (profile.itemCode != itemCode) continue;
             ItemInventory itemInventory = new()
             {
+                itemId = ItemInventory.RandomId(),
                 itemProfile = profile,
                 itemCount = 0,
                 maxStack = profile.defaultMaxStack,
