@@ -73,7 +73,7 @@ public class UIInventory : UIInventoryAbstract
         switch(this.inventorySort)
         {
             case InventorySort.ByName:
-                Debug.Log("Sort ByName");
+                this.SortByName();
                 break;
             case InventorySort.ByCount:
                 Debug.Log("Sort ByCount");
@@ -82,5 +82,57 @@ public class UIInventory : UIInventoryAbstract
                 Debug.Log("No Sort");
                 break;
         }
+    }
+
+    protected virtual void SortByName()
+    {
+        Debug.Log("Sort ByName");
+
+        int itemCount = this.inventoryCtrl.Content.childCount;
+
+        Transform curTransform, nextTransform;
+        UIItemInventory curUIItemInv, nextUIItemInv;
+        ItemProfileSO curProfile, nextProfile;
+        string curName, nextName;
+
+        for (int a = 0; a <  itemCount - 1; a++)
+        {
+            bool isSwap = false;
+            for (int i = 0; i < itemCount - 1; i++)
+            {
+                curTransform = this.inventoryCtrl.Content.GetChild(i);
+                nextTransform = this.inventoryCtrl.Content.GetChild(i+1);
+
+                curUIItemInv = curTransform.GetComponent<UIItemInventory>();
+                nextUIItemInv = nextTransform.GetComponent<UIItemInventory>();
+
+                curProfile = curUIItemInv.ItemInventory.itemProfile;
+                nextProfile = nextUIItemInv.ItemInventory.itemProfile;
+
+                curName = curProfile.itemName;
+                nextName = nextProfile.itemName;
+
+                int compare = string.Compare(curName, nextName);
+
+                //curName > nextName
+                if (compare == 1)
+                {
+                    this.SwapUIInvItem(curTransform, nextTransform);
+                    isSwap = true;
+                }
+            }
+
+            if (!isSwap) break;
+        }
+
+    }
+
+    protected virtual void SwapUIInvItem(Transform curTransform, Transform nextTransform)
+    {
+        int curIndex = curTransform.GetSiblingIndex();
+        int nextIndex = nextTransform.GetSiblingIndex();
+
+        curTransform.SetSiblingIndex(nextIndex);
+        nextTransform.SetSiblingIndex(curIndex);
     }
 }
