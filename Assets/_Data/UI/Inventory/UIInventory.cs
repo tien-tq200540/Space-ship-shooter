@@ -8,7 +8,7 @@ public class UIInventory : UIInventoryAbstract
     public static UIInventory Instance => instance;
 
     protected bool isOpen = true;
-    [SerializeField] protected InventorySort inventorySort = InventorySort.ByName;
+    [SerializeField] protected InventorySort inventorySort = InventorySort.NoSort;
 
     protected override void Awake()
     {
@@ -70,38 +70,19 @@ public class UIInventory : UIInventoryAbstract
 
     protected virtual void SortItems()
     {
-        switch(this.inventorySort)
-        {
-            case InventorySort.ByName:
-                this.SortByName();
-                break;
-            case InventorySort.ByCount:
-                Debug.Log("Sort ByCount");
-                break;
-            default:
-                Debug.Log("No Sort");
-                break;
-        }
-    }
-
-    protected virtual void SortByName()
-    {
-        Debug.Log("Sort ByName");
-
+        if (this.inventorySort == InventorySort.NoSort) return;
         int itemCount = this.inventoryCtrl.Content.childCount;
-
         Transform curTransform, nextTransform;
         UIItemInventory curUIItemInv, nextUIItemInv;
         ItemProfileSO curProfile, nextProfile;
-        string curName, nextName;
 
-        for (int a = 0; a <  itemCount - 1; a++)
+        for (int a = 0; a < itemCount - 1; a++)
         {
             bool isSwap = false;
             for (int i = 0; i < itemCount - 1; i++)
             {
                 curTransform = this.inventoryCtrl.Content.GetChild(i);
-                nextTransform = this.inventoryCtrl.Content.GetChild(i+1);
+                nextTransform = this.inventoryCtrl.Content.GetChild(i + 1);
 
                 curUIItemInv = curTransform.GetComponent<UIItemInventory>();
                 nextUIItemInv = nextTransform.GetComponent<UIItemInventory>();
@@ -109,13 +90,25 @@ public class UIInventory : UIInventoryAbstract
                 curProfile = curUIItemInv.ItemInventory.itemProfile;
                 nextProfile = nextUIItemInv.ItemInventory.itemProfile;
 
-                curName = curProfile.itemName;
-                nextName = nextProfile.itemName;
+                bool canSwap = false;
 
-                int compare = string.Compare(curName, nextName);
+                switch (this.inventorySort)
+                {
+                    case InventorySort.ByNameASC:
+                        canSwap = string.Compare(curProfile.itemName, nextProfile.itemName) == 1;
+                        break;
+                    case InventorySort.ByNameDES:
+                        canSwap = string.Compare(curProfile.itemName, nextProfile.itemName) == -1;
+                        break;
+                    case InventorySort.ByCountASC:
+                        canSwap = curUIItemInv.ItemInventory.itemCount > nextUIItemInv.ItemInventory.itemCount;
+                        break;
+                    case InventorySort.ByCountDES:
+                        canSwap = curUIItemInv.ItemInventory.itemCount < nextUIItemInv.ItemInventory.itemCount;
+                        break;
+                }
 
-                //curName > nextName
-                if (compare == 1)
+                if (canSwap)
                 {
                     this.SwapUIInvItem(curTransform, nextTransform);
                     isSwap = true;
@@ -124,6 +117,15 @@ public class UIInventory : UIInventoryAbstract
 
             if (!isSwap) break;
         }
+    }
+
+    protected virtual void SortByName()
+    {
+
+
+
+        string curName, nextName;
+        
 
     }
 

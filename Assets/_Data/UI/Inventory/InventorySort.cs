@@ -5,6 +5,8 @@ using UnityEngine;
 public enum InventorySort
 {
     NoSort = 0,
-    ByName = 1,
-    ByCount = 2,
+    ByNameASC = 1,
+    ByNameDES = 2,
+    ByCountASC = 3,
+    ByCountDES = 4,
 }

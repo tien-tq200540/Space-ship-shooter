@@ -4182,7 +4182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryCtrl: {fileID: 1853885263}
-  inventorySort: 1
+  inventorySort: 0
 --- !u!1 &769359797
 GameObject:
   m_ObjectHideFlags: 0
