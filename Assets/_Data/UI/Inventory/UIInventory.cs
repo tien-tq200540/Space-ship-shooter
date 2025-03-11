@@ -20,6 +20,7 @@ public class UIInventory : UIInventoryAbstract
     protected override void Start()
     {
         base.Start();
+        this.Close();
         InvokeRepeating(nameof(this.ShowItems), 1f, 1f);
     }
 
@@ -117,16 +118,6 @@ public class UIInventory : UIInventoryAbstract
 
             if (!isSwap) break;
         }
-    }
-
-    protected virtual void SortByName()
-    {
-
-
-
-        string curName, nextName;
-        
-
     }
 
     protected virtual void SwapUIInvItem(Transform curTransform, Transform nextTransform)
