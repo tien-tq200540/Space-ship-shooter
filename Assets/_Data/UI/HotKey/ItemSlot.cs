@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemDrop : TienMonoBehaviour, IDropHandler
+public class ItemSlot : TienMonoBehaviour, IDropHandler
 {
     public void OnDrop(PointerEventData eventData)
     {
